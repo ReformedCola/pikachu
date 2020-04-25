@@ -1,6 +1,6 @@
 const string = `
 /*
- * Are you ready?
+ * Are you ready ?
  */
  
 .skin * {
