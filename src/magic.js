@@ -1,38 +1,38 @@
 import string from './css.js'
 
 const player = {
-  id : undefined,
-  time : 100,
-  n : 1,
-  ui : {
-    demo : document.querySelector('#demo'),
-    demo2 : document.querySelector('#demo2')
+  id: undefined,
+  time: 100,
+  n: 1,
+  ui: {
+    demo: document.querySelector('#demo'),
+    demo2: document.querySelector('#demo2')
   },
-  events : {
-    '#btnPause' : 'pause',
-    '#btnPlay' : 'play',
-    '#btnSlow' : 'slow',
-    '#btnNormal' : 'normal',
-    '#btnFast' : 'fast',
-    '#btnSkip' : 'skip'
+  events: {
+    '#btnPause': 'pause',
+    '#btnPlay': 'play',
+    '#btnSlow': 'slow',
+    '#btnNormal': 'normal',
+    '#btnFast': 'fast',
+    '#btnSkip': 'skip'
   },
-  init : () => {
+  init: () => {
     player.ui.demo.innerText = string.substr(0, player.n)
     player.ui.demo2.innerHTML = string.substr(0, player.n)
     player.bindEvents()
     player.play()
   },
-  bindEvents : () => {
-    for(let key in player.events) {
-      if(player.events.hasOwnProperty(key)) {
+  bindEvents: () => {
+    for (let key in player.events) {
+      if (player.events.hasOwnProperty(key)) {
         const value = player.events[key] // pause / play / slow
         document.querySelector(key).onclick = player[value]
       }
     }
   },
-  run : () => {
-    player.n+=1
-    if(player.n > string.length) {
+  run: () => {
+    player.n += 1
+    if (player.n > string.length) {
       window.clearInterval(player.id)
       return
     }
@@ -40,32 +40,32 @@ const player = {
     player.ui.demo2.innerHTML = string.substr(0, player.n)
     player.ui.demo.scrollTop = player.ui.demo.scrollHeight
   },
-  play : () => {
+  play: () => {
+    player.pause()
     player.id = setInterval(player.run, player.time)
   },
-  pause : () => {
+  pause: () => {
     window.clearInterval(player.id)
   },
-  slow : () => {
+  slow: () => {
     player.pause()
     player.time = 300
     player.play()
   },
-  normal : () => {
+  normal: () => {
     player.pause()
     player.time = 100
     player.play()
   },
-  fast : () => {
+  fast: () => {
     player.pause()
     player.time = 0
     player.play()
   },
-  skip : () => {
+  skip: () => {
     player.pause()
     player.ui.demo.innerText = string
     player.ui.demo2.innerHTML = string
-    return -1
   }
 }
 

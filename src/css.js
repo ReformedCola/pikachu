@@ -1,4 +1,8 @@
 const string = `
+/*
+ * Are you ready ?
+ */
+ 
 .skin * {
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +19,10 @@ const string = `
   min-height: 50vh;
 }
 
+/*
+ * First, draw Pikachu's nose
+ */
+ 
 .nose {
   border: 10px solid black;
   border-color: black transparent transparent;
@@ -58,6 +66,10 @@ const string = `
   background: black;
 }
 
+/*
+ * Then, draw Pikachu's eyes
+ */
+
 .eye {
   border: 2px solid #000;
   width: 64px;
@@ -89,6 +101,10 @@ const string = `
 .eye.right {
   transform: translate(100px);
 }
+
+/*
+ * Now, draw Pikachu's mouth
+ */
 
 .mouth {
   width: 200px;
@@ -194,6 +210,12 @@ const string = `
   background: #ff0000;
   border-radius: 50%;
 }
+
+/*
+ * Thanks for watching,
+ * Hope you like it !
+ * See you next time !
+ */
 `
 
-export default string;
+export default string

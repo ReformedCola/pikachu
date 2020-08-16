@@ -117,96 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"css.js":[function(require,module,exports) {
-"use strict";
+})({"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var string = "\n/*\n * Are you ready ?\n */\n \n.skin * {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\n.skin *::before, .skin *::after {\n  box-sizing: border-box;\n}\n\n.skin {\n  position: relative;\n  background: #ffe600;\n  min-height: 50vh;\n}\n\n/*\n * First, draw Pikachu's nose\n */\n \n.nose {\n  border: 10px solid black;\n  border-color: black transparent transparent;\n  border-bottom: none;\n  width: 0;\n  height: 0;\n  position: relative;\n  left: 50%;\n  top: 145px;\n  margin-left: -10px;\n  z-index: 10;\n}\n\n@keyframes wave {\n  0% {\n    transform: rotate(0deg);\n  }\n  33% {\n    transform: rotate(5deg);\n  }\n  66% {\n    transform: rotate(-5deg);\n  }\n  100% {\n    transform: rotate(0deg);\n  }\n}\n\n.nose:hover {\n  transform-origin: center bottom;\n  animation: wave 300ms infinite linear;\n}\n\n.circle {\n  position: absolute;\n  width: 20px;\n  height: 6px;\n  top: -16px;\n  left: -10px;\n  border-radius: 10px 10px 0 0;\n  background: black;\n}\n\n/*\n * Then, draw Pikachu's eyes\n */\n\n.eye {\n  border: 2px solid #000;\n  width: 64px;\n  height: 64px;\n  position: absolute;\n  left: 50%;\n  top: 100px;\n  margin-left: -32px;\n  background: #2e2e2e;\n  border-radius: 50%;\n}\n\n.eye::before {\n  content: '';\n  display: block;\n  border: 2px solid #000;\n  width: 30px;\n  height: 30px;\n  background: #fff;\n  border-radius: 50%;\n  position: relative;\n  left: 8px;\n}\n\n.eye.left {\n  transform: translateX(-100px);\n}\n\n.eye.right {\n  transform: translate(100px);\n}\n\n/*\n * Now, draw Pikachu's mouth\n */\n\n.mouth {\n  width: 200px;\n  height: 200px;\n  position: absolute;\n  left: 50%;\n  top: 170px;\n  margin-left: -100px;\n}\n\n.mouth .up {\n  position: relative;\n  top: -54px;\n  z-index: 1;\n}\n\n.mouth .up .lip {\n  height: 25px;\n  width: 80px;\n  border: 2px solid black;\n  border-top: none;\n  position: absolute;\n  top:48px;\n  background: #FEE433;\n}\n\n.mouth .up .lip.left {\n  right: 50%;\n  border-bottom-left-radius: 40px 25px;\n  border-right: none;\n  transform: rotate(-20deg);\n}\n\n.mouth .up .lip.right {\n  left: 50%;\n  border-bottom-right-radius: 40px 25px;\n  border-left: none;\n  transform: rotate(20deg);\n}\n\n.mouth .down {\n  height: 180px;\n  position: absolute;\n  top: 5px;\n  width: 100%;\n  overflow: hidden;\n}\n\n.mouth .down .bigcircle {\n  border: 3px solid black;\n  width: 150px;\n  height: 1000px;\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  margin-left: -75px;\n  border-radius: 75px / 300px;\n  background: #9b000a;\n  overflow: hidden;\n}\n\n.mouth .down .bigcircle .bigcircle2 {\n  width: 200px;\n  height: 300px;\n  background: #ff485f;\n  position: absolute;\n  bottom: -155px;\n  left: 50%;\n  margin-left: -100px;\n  border-radius: 100px;\n}\n\n.face {\n  position: absolute;\n  left: 50%;\n  border: 3px solid black;\n  width: 88px;\n  height: 88px;\n  top: 200px;\n  margin-left: -44px;\n  z-index: 3;\n}\n\n.face > img {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n}\n\n.face.left {\n  transform: translateX(-180px);\n  background: #ff0000;\n  border-radius: 50%;\n}\n\n.face.left > img {\n  transform: rotateY(180deg);\n  transform-origin: 0 0;\n}\n\n.face.right {\n  transform: translateX(180px);\n  background: #ff0000;\n  border-radius: 50%;\n}\n\n/*\n * Thanks for watching,\n * Hope you like it !\n * See you next time !\n */\n";
-var _default = string;
-exports.default = _default;
-},{}],"magic.js":[function(require,module,exports) {
-"use strict";
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-var _css = _interopRequireDefault(require("./css.js"));
+  return bundleURL;
+}
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-var player = {
-  id: undefined,
-  time: 100,
-  n: 1,
-  ui: {
-    demo: document.querySelector('#demo'),
-    demo2: document.querySelector('#demo2')
-  },
-  events: {
-    '#btnPause': 'pause',
-    '#btnPlay': 'play',
-    '#btnSlow': 'slow',
-    '#btnNormal': 'normal',
-    '#btnFast': 'fast',
-    '#btnSkip': 'skip'
-  },
-  init: function init() {
-    player.ui.demo.innerText = _css.default.substr(0, player.n);
-    player.ui.demo2.innerHTML = _css.default.substr(0, player.n);
-    player.bindEvents();
-    player.play();
-  },
-  bindEvents: function bindEvents() {
-    for (var key in player.events) {
-      if (player.events.hasOwnProperty(key)) {
-        var value = player.events[key]; // pause / play / slow
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
 
-        document.querySelector(key).onclick = player[value];
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
       }
     }
-  },
-  run: function run() {
-    player.n += 1;
 
-    if (player.n > _css.default.length) {
-      window.clearInterval(player.id);
-      return;
-    }
+    cssTimeout = null;
+  }, 50);
+}
 
-    player.ui.demo.innerText = _css.default.substr(0, player.n);
-    player.ui.demo2.innerHTML = _css.default.substr(0, player.n);
-    player.ui.demo.scrollTop = player.ui.demo.scrollHeight;
-  },
-  play: function play() {
-    player.pause();
-    player.id = setInterval(player.run, player.time);
-  },
-  pause: function pause() {
-    window.clearInterval(player.id);
-  },
-  slow: function slow() {
-    player.pause();
-    player.time = 300;
-    player.play();
-  },
-  normal: function normal() {
-    player.pause();
-    player.time = 100;
-    player.play();
-  },
-  fast: function fast() {
-    player.pause();
-    player.time = 0;
-    player.play();
-  },
-  skip: function skip() {
-    player.pause();
-    player.ui.demo.innerText = _css.default;
-    player.ui.demo2.innerHTML = _css.default;
-  }
-};
-player.init();
-},{"./css.js":"css.js"}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -410,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","magic.js"], null)
-//# sourceMappingURL=/magic.1b3a3dcf.js.map
+},{}]},{},["../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.e308ff8e.js.map
