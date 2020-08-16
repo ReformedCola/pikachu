@@ -101,49 +101,32 @@ const string = `
 
 .mouth .up {
   position: relative;
-  top: -20px;
+  top: -54px;
   z-index: 1;
 }
 
 .mouth .up .lip {
-  border: 3px solid black;
-  height: 30px;
-  width: 100px;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  position: relative;
+  height: 25px;
+  width: 80px;
+  border: 2px solid black;
+  border-top: none;
   position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  background: #ffe600;
+  top:48px;
+  background: #FEE433;
 }
 
 .mouth .up .lip.left {
-  border-radius: 0 0 0 50px;
-  transform: rotate(-15deg) translateX(-53px);
-}
-
-.mouth .up .lip::before {
-  content: '';
-  display: block;
-  width: 7px;
-  height: 30px;
-  position: absolute;
-  bottom: 0;
-  background: #ffe600;
-}
-
-.mouth .up .lip.left::before {
-  right: -6px;
+  right: 50%;
+  border-bottom-left-radius: 40px 25px;
+  border-right: none;
+  transform: rotate(-20deg);
 }
 
 .mouth .up .lip.right {
-  border-radius: 0 0 50px 0;
-  transform: rotate(15deg) translateX(53px);
-}
-
-.mouth .up .lip.right::before {
-  left: -6px;
+  left: 50%;
+  border-bottom-right-radius: 40px 25px;
+  border-left: none;
+  transform: rotate(20deg);
 }
 
 .mouth .down {

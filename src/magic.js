@@ -65,6 +65,7 @@ const player = {
     player.pause()
     player.ui.demo.innerText = string
     player.ui.demo2.innerHTML = string
+    return -1
   }
 }
 

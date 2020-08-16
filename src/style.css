@@ -18,7 +18,7 @@ body {
 }
 
 .nose {
-  border: 10px solid black;
+  border: 10px solid;
   border-color: black transparent transparent;
   border-bottom: none;
   width: 0;
