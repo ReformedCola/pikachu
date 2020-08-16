@@ -13,7 +13,8 @@ const player = {
     '#btnPlay' : 'play',
     '#btnSlow' : 'slow',
     '#btnNormal' : 'normal',
-    '#btnFast' : 'fast'
+    '#btnFast' : 'fast',
+    '#btnSkip' : 'skip'
   },
   init : () => {
     player.ui.demo.innerText = string.substr(0, player.n)
@@ -59,6 +60,11 @@ const player = {
     player.pause()
     player.time = 0
     player.play()
+  },
+  skip : () => {
+    player.pause()
+    player.ui.demo.innerText = string
+    player.ui.demo2.innerHTML = string
   }
 }
 
